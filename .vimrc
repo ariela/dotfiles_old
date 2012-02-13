@@ -1,5 +1,7 @@
 " vim: set ts=4 sw=4 sts=0:
 
+source ~/dotfiles/vimconfig/bundle
+
 "---------------------------------------------------------------------------------------------------
 " äÓñ{ê›íË
 "---------------------------------------------------------------------------------------------------
@@ -238,12 +240,6 @@ nnoremap <C-k> :<C-w>k
 nnoremap <C-l> ;<C-w>l
 nnoremap <C-h> ;<C-w>h
 
-
-filetype off
-set rtp+=~/.vim/vundle/
-call vundle#rc()
-Bundle 'https://github.com/Shougo/neocomplcache.git'
-filetype plugin indent on
 
 "***************************************************************************************************
 " ä÷êîíËã`
