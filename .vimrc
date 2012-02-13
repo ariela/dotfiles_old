@@ -242,7 +242,7 @@ nnoremap <C-h> ;<C-w>h
 filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
-Bundle 'Shougo/neocomplcach'
+Bundle 'https://github.com/Shougo/neocomplcache.git'
 filetype plugin indent on
 
 "***************************************************************************************************
