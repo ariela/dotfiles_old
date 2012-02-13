@@ -1,6 +1,10 @@
 " vim: set ts=4 sw=4 sts=0:
 
-source ~/dotfiles/vimconfig/bundle
+let $VMCONFIG_PATH = '/home/yuki/dotfiles/vimconfig'
+
+source $VMCONFIG_PATH/bundle     " Vundleƒvƒ‰ƒOƒCƒ“ŠÖ˜Aİ’è
+source $VMCONFIG_PATH/statusline  " ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“ŠÖ˜Aİ’è
+source $VMCONFIG_PATH/colors      " FŠÖ˜Aİ’è
 
 "---------------------------------------------------------------------------------------------------
 " Šî–{İ’è
@@ -31,32 +35,6 @@ set clipboard=unnamed
 " ‘}“üƒ‚[ƒh‚ÅCtrl+k‚ğ‰Ÿ‚·‚ÆƒNƒŠƒbƒvƒ{[ƒh‚Ì“à—e‚ğ“\‚è•t‚¯‚ç‚ê‚é‚æ‚¤‚É‚·‚é "
 imap <C-V>  <ESC>"*pa
 
-
-"---------------------------------------------------------------------------------------------------
-" ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“İ’è
-"---------------------------------------------------------------------------------------------------
-"ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ğí‚É•\¦i2sj
-set laststatus=2
-
-"ƒJ[ƒ\ƒ‹‚ª‰½s–Ú‚Ì‰½—ñ–Ú‚É’u‚©‚ê‚Ä‚¢‚é‚©‚ğ•\¦‚·‚é
-set ruler
-
-"ƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚É•¶šƒR[ƒh‚Æ‰üs•¶š‚ğ•\¦‚·‚é
-if winwidth(0) >= 120
-  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %F%=[%{GetB()}]\ %l,%c%V%8P
-else
-  set statusline=%<[%n]%m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%y\ %f%=[%{GetB()}]\ %l,%c%V%8P
-endif
-
-"“ü—Íƒ‚[ƒhAƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ÌƒJƒ‰[‚ğ•ÏX
-augroup InsertHook
-autocmd!
-autocmd InsertEnter * highlight StatusLine guifg=#ccdc90 guibg=#2E4340
-autocmd InsertLeave * highlight StatusLine guifg=#2E4340 guibg=#ccdc90
-augroup END
-
-"“ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ğƒXƒe[ƒ^ƒX‚É•\¦‚·‚é
-set showcmd
 
 "---------------------------------------------------------------------------------------------------
 " •\¦İ’è
@@ -198,32 +176,6 @@ if exists('&ambiwidth')
 endif
 
 
-"---------------------------------------------------------------------------------------------------
-" ƒJƒ‰[ƒŠƒ“ƒOİ’è
-"---------------------------------------------------------------------------------------------------
-" ƒ^[ƒ~ƒiƒ‹ƒ^ƒCƒv‚É‚æ‚éƒJƒ‰[İ’è
-if &term =~ "xterm-debian" || &term =~ "xterm-xfree86" || &term =~ "xterm-256color"
-    set t_Co=16
-    set t_Sf=[3%dm
-    set t_Sb=[4%dm
-elseif &term =~ "xterm-color"
-    set t_Co=8
-    set t_Sf=[3%dm
-    set t_Sb=[4%dm
-endif
-
-"ƒ|ƒbƒvƒAƒbƒvƒƒjƒ…[‚ÌƒJƒ‰[‚ğİ’è
-"hi Pmenu guibg=#666666
-"hi PmenuSel guibg=#8cd0d3 guifg=#666666
-"hi PmenuSbar guibg=#333333
-
-" ƒnƒCƒ‰ƒCƒg on
-syntax enable
-
-" •âŠ®Œó•â‚ÌF‚Ã‚¯ for vim7
-hi Pmenu ctermbg=white ctermfg=darkgray
-hi PmenuSel ctermbg=blue ctermfg=white
-hi PmenuSbar ctermbg=0 ctermfg=9
 
 
 "---------------------------------------------------------------------------------------------------
