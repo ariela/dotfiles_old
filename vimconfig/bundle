@@ -1,0 +1,8 @@
+filetype off
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+
+Bundle "molokai"
+
+filetype plugin indent on
+
