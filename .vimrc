@@ -5,6 +5,7 @@ let $VMCONFIG_PATH = '/home/yuki/dotfiles/vimconfig'
 source $VMCONFIG_PATH/bundle     " Vundleプラグイン関連設定
 source $VMCONFIG_PATH/statusline  " ステータスライン関連設定
 source $VMCONFIG_PATH/colors      " 色関連設定
+source $VMCONFIG_PATH/neocomplcache " neocomplcache設定
 
 "---------------------------------------------------------------------------------------------------
 " 基本設定

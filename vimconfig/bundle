@@ -3,6 +3,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle "molokai"
+Bundle "Shougo/neocomplcache"
 
 filetype plugin indent on
 
