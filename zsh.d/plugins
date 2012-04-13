@@ -1,6 +1,6 @@
 # auto-fu
-if [ -f ~/.zsh.d/plugin/auto-fu.zsh/auto-fu.zsh ]; then
-    source ~/.zsh.d/plugin/auto-fu.zsh/auto-fu.zsh
+if [ -f ${ZSHD_PATH}/plugin/auto-fu.zsh/auto-fu.zsh ]; then
+    source ${ZSHD_PATH}/plugin/auto-fu.zsh/auto-fu.zsh
     function zle-line-init() {
         auto-fu-init
     }
