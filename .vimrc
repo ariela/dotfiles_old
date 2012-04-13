@@ -1,7 +1,7 @@
 " vim: set ts=4 sw=4 sts=0:
 
-let $VMBUNDLE_PATH = '$HOME/.vim'
-let $VMCONFIG_PATH = '$HOME/dotfiles/vim.d'
+let $VMBUNDLE_PATH = '/home/yuki/.vim'
+let $VMCONFIG_PATH = '/home/yuki/dotfiles/vim.d'
 
 source $VMCONFIG_PATH/functions/common
 
