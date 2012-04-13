@@ -6,5 +6,6 @@ call vundle#rc()
 Bundle "molokai"
 Bundle "Shougo/neocomplcache"
 Bundle "Shougo/unite.vim"
+Bundle "vim-scripts/sudo.vim"
 
 filetype plugin indent on
