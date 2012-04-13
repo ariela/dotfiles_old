@@ -1,0 +1,10 @@
+filetype off
+
+set rtp+=$VMBUNDLE_PATH/vundle.git/
+call vundle#rc()
+
+Bundle "molokai"
+Bundle "Shougo/neocomplcache"
+Bundle "Shougo/unite.vim"
+
+filetype plugin indent on

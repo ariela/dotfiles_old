@@ -1,0 +1,9 @@
+##ログ設定 ===============================================================
+HISTFILE=${HOME}/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt hist_ignore_dups
+setopt share_history
+#setopt extended_history
+#function history-all { history -E 1 }
+#setopt COMPLETE_IN_WORD

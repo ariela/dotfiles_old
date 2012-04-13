@@ -1,0 +1,26 @@
+# 個人用zsh設定ファイル
+
+# 環境変数設定
+source ${ZSHD_PATH}/environment
+
+# テーマの読み込み
+source ${ZSHD_PATH}/theme/console
+
+# 補完設定
+source ${ZSHD_PATH}/completion
+
+# 各種設定
+source ${ZSHD_PATH}/config
+
+# ログ設定
+source ${ZSHD_PATH}/log
+
+# エイリアス設定
+source ${ZSHD_PATH}/alias
+
+# ターミナル設定
+source ${ZSHD_PATH}/terminal
+
+# プラグインの読み込み
+source ${ZSHD_PATH}/plugins
+

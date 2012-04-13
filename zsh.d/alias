@@ -1,0 +1,31 @@
+##エイリアス設定 =========================================================
+setopt complete_aliases
+alias where="command -v"
+alias j="jobs -l"
+
+case "${OSTYPE}" in
+freebsd*|darwin*)
+    alias ls="ls -G -w"
+    alias ll='ls -G -w -al'
+    alias la='ls -G -w -a'
+    ;;
+linux*)
+    alias ls="ls --color=auto -v"
+    alias ll='ls --color=auto -alh'
+    alias la='ls --color=auto -a'
+    ;;
+esac
+
+
+alias resource='source ~/.zshrc'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias cls='clear'
+alias lf="ls -F"
+alias du="du -h"
+alias df="df -h"
+alias vi="vim"
+alias suvi="sudo vim -u ~/.vimrc"
+alias sg="find ./ -type f -print | xargs grep"
+alias sudo="sudo PATH=$PATH"

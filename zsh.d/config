@@ -1,0 +1,11 @@
+# オートディレクトリ保持
+setopt auto_pushd
+
+# コマンドミスの修正案
+setopt correct
+
+# 補完を詰める
+setopt list_packed
+
+# beep音OFF
+setopt nolistbeep

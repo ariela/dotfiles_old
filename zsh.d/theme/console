@@ -1,0 +1,61 @@
+autoload -U colors zsh/terminfo
+colors
+setopt prompt_subst
+
+# 色のエイリアス作成
+for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+    eval PR_$color='%{$fg[${(L)color}]%}'
+done
+eval PR_NO_COLOR="%{$terminfo[sgr0]%}"
+eval PR_BOLD="%{$terminfo[bold]%}"
+# 括弧
+eval PR_BRSL='%{$PR_BOLD$PR_CYAN%}[${PR_NO_COLOR}'
+eval PR_BRSR='%{$PR_BOLD$PR_CYAN%}]${PR_NO_COLOR}'
+
+# git情報
+autoload -Uz add-zsh-hook
+autoload -Uz vcs_info
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "+"    # 適当な文字列に変更する
+zstyle ':vcs_info:git:*' unstagedstr "-"  # 適当の文字列に変更する
+zstyle ':vcs_info:git:*' formats '(%s)-[%b] %c%u'
+zstyle ':vcs_info:git:*' actionformats '(%s)-[%b|%a] %c%u'
+function _update_vcs_info_msg() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+add-zsh-hook precmd _update_vcs_info_msg
+
+# ルート/ユーザの切り替え部分
+if [[ $UID -eq 0 ]]; then
+    eval PR_USER='${PR_BOLD}${PR_RED}%n${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_RED}%#${PR_NO_COLOR}'
+else
+    eval PR_USER='${PR_GREEN}%n${PR_NO_COLOR}'
+    eval PR_USER_OP='${PR_GREEN}\$${PR_NO_COLOR}'
+fi
+# ホスト名
+eval PR_HOST='${PR_YELLOW}%m${PR_NO_COLOR}'
+
+
+# プロンプトの設定
+local p_user="${PR_BRSL}${PR_USER}${PR_BRSR}"
+local p_host="${PR_BRSL}${PR_HOST}${PR_BRSR}"
+local p_path="${PR_BRSL}${PR_CYAN}%/${PR_BRSR}"
+local p_opel='${PR_BOLD}${PR_CYAN}>> ${PR_USER_OP}'
+local p_retn="%(?..%{$PR_BOLD$PR_RED%}>%?<%{$PR_NO_COLOR%})"
+local pl_border='${PR_BOLD}${PR_CYAN}╭─${PR_NO_COLOR}'
+local pr_border='${PR_BOLD}${PR_CYAN}╰─${PR_NO_COLOR}'
+
+PROMPT="${pl_border}${p_user}${p_host}${p_path}"$'\n'"${pr_border}${p_opel} "
+RPROMPT="${p_retn} %1(v|%F{green}%1v%f|)"
+
+###  local rvm_ruby=''
+###  if which rvm-prompt &> /dev/null; then
+###    rvm_ruby='%{$PR_RED%}‹$(rvm-prompt i v g s)›%{$PR_NO_COLOR%}'
+###  else
+###    if which rbenv &> /dev/null; then
+###      rvm_ruby='%{$PR_RED%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$PR_NO_COLOR%}'
+###    fi
+###  fi

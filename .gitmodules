@@ -1,6 +1,3 @@
-[submodule "/home/yuki/dotfiles/vimfiles/vundle"]
-	path = /home/yuki/dotfiles/vimfiles/vundle
-	url = http://github.com/gmarik/vundle.git
-[submodule "vimfiles/vundle"]
-	path = vimfiles/vundle
+[submodule ".vim/vundle.git"]
+	path = .vim/vundle.git
 	url = http://github.com/gmarik/vundle.git
