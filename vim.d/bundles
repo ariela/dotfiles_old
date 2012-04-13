@@ -1,6 +1,6 @@
 filetype off
 
-set rtp+=$VMBUNDLE_PATH/vundle.git/
+set rtp+=$VMBUNDLE_PATH/vundle/
 call vundle#rc()
 
 Bundle "molokai"
